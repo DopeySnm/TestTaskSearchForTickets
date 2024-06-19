@@ -6,4 +6,9 @@
     <string name="subscriptions">Подписки</string>
     <string name="profile">Профиль</string>
     <string name="stub">Сервис временно недоступен</string>
+
+    <string name="finding_cheap_flights">Поиск дешевых\n авиабилетов</string>
+    <string name="help_from_where">Откуда - Москва</string>
+    <string name="help_to_where">Куда - Турция</string>
+    <string name="fly_away_musically">Музыкально отлететь</string>
 </resources>
