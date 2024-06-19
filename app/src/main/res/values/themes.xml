@@ -3,6 +3,7 @@
     <style name="Base.Theme.TestTaskSearchForTickets" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="navbar_height">80dp</item>
     </style>
 
     <style name="Theme.TestTaskSearchForTickets" parent="Base.Theme.TestTaskSearchForTickets" />

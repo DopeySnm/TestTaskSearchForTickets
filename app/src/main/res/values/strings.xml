@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TestTaskSearchForTickets</string>
+    <string name="air_tickets">Aвиабилеты</string>
+    <string name="hotels">Отели</string>
+    <string name="brief">Короче</string>
+    <string name="subscriptions">Подписки</string>
+    <string name="profile">Профиль</string>
+    <string name="stub">Сервис временно недоступен</string>
 </resources>

@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cerulean_blue">#2261BC</color>
+    <color name="dark_gray">#9F9F9F</color>
+    <color name="black_wash">#0C0C0C</color>
+    <color name="inkwell_inception">#1D1E20</color>
 </resources>
