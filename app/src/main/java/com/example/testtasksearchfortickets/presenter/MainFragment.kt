@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.testtasksearchfortickets.R
 import com.example.testtasksearchfortickets.databinding.FragmentMainBinding
+import com.example.testtasksearchfortickets.presenter.mainScreen.MainScreenFragment
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     private val binding: FragmentMainBinding by viewBinding()

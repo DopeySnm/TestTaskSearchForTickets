@@ -11,4 +11,7 @@
     <string name="help_from_where">Откуда - Москва</string>
     <string name="help_to_where">Куда - Турция</string>
     <string name="fly_away_musically">Музыкально отлететь</string>
+
+    <string name="currency">₽</string>
+    <string name="from">от</string>
 </resources>
