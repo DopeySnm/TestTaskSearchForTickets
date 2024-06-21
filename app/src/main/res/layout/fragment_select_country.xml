@@ -110,6 +110,7 @@
             android:id="@+id/start_date_button"
             style="@style/KeyboardButtonStyle"
             android:layout_marginStart="29dp"
+            android:text="@string/test_date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_date_button"
             app:layout_constraintTop_toTopOf="parent" />
@@ -136,9 +137,12 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="260dp"
         android:layout_margin="20dp"
+        android:background="@drawable/tickets_offers_background"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
@@ -148,17 +152,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/direct_flights"
-            android:textSize="24sp"
             android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tickets_offers_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/direct_flights_textView" />
-
+            app:layout_constraintTop_toBottomOf="@+id/direct_flights_textView"
+            tools:listitem="@layout/tickets_offers_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/all_tickets_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Посмотреть все билеты"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:background="@drawable/all_tickets_button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

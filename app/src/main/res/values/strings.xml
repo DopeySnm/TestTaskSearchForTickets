@@ -18,6 +18,7 @@
     <string name="hot_tickets">Горячие\nбилеты</string>
     <string name="one_economy">1,эконом</string>
     <string name="back">обратно</string>
+    <string name="test_date">24 фев<font color='#9F9F9F'>, сб</font></string>
 
     <string name="sunday">пн</string>
     <string name="monday">вт</string>

@@ -1,13 +1,14 @@
 package com.example.testtasksearchfortickets.data.repository
 
-import com.example.testtasksearchfortickets.data.api.OffersService
+import com.example.testtasksearchfortickets.data.api.TestAirTicketsService
 import com.example.testtasksearchfortickets.data.model.Offer
+import com.example.testtasksearchfortickets.data.model.OfferedTicket
 import com.example.testtasksearchfortickets.data.state.DataState
 import javax.inject.Inject
 
 
 class OffersRepositoryImpl @Inject constructor(
-    private val service: OffersService
+    private val service: TestAirTicketsService
 ) : OffersRepository {
 
     override suspend fun getAllOffers(): DataState<List<Offer>> {
@@ -22,7 +23,27 @@ class OffersRepositoryImpl @Inject constructor(
                         }
                         DataState.Success(result)
                     } ?: DataState.Failure("Empty response")
-                } else DataState.Failure("Unable to get all foods")
+                } else DataState.Failure("Unable to get all offers")
+            },
+            onFailure = {
+                return DataState.Failure(it.message ?: "Unknown error")
+            }
+        )
+    }
+
+    override suspend fun getTicketsOffers(): DataState<List<OfferedTicket>> {
+        kotlin.runCatching {
+            service.getTicketsOffers()
+        }.fold(
+            onSuccess = { response ->
+                return if (response.isSuccessful) {
+                    response.body()?.let { ticketsOffers ->
+                        val result = ticketsOffers.ticketsOffers.map {
+                            it.toOfferedTicket()
+                        }
+                        DataState.Success(result)
+                    } ?: DataState.Failure("Empty response")
+                } else DataState.Failure("Unable to get tickets offers")
             },
             onFailure = {
                 return DataState.Failure(it.message ?: "Unknown error")

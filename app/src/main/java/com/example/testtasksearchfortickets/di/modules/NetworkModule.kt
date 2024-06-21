@@ -1,6 +1,6 @@
 package com.example.testtasksearchfortickets.di.modules
 
-import com.example.testtasksearchfortickets.data.api.OffersService
+import com.example.testtasksearchfortickets.data.api.TestAirTicketsService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NetworkModule {
 
     @Provides
-    fun provideOffersService(): OffersService {
+    fun provideTestAirTicketsService(): TestAirTicketsService {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
@@ -23,7 +23,7 @@ class NetworkModule {
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(OffersService::class.java)
+            .create(TestAirTicketsService::class.java)
     }
 
 }

@@ -4,6 +4,8 @@ import com.example.testtasksearchfortickets.data.repository.OffersRepository
 import com.example.testtasksearchfortickets.data.repository.OffersRepositoryImpl
 import com.example.testtasksearchfortickets.domain.GetAllOffersUseCase
 import com.example.testtasksearchfortickets.domain.GetAllOffersUseCaseImpl
+import com.example.testtasksearchfortickets.domain.GetTicketsOffersUseCase
+import com.example.testtasksearchfortickets.domain.GetTicketsOffersUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -22,5 +24,11 @@ interface AppBindsModule {
     fun bindGetAllOffersUseCase(
         useCase: GetAllOffersUseCaseImpl
     ) : GetAllOffersUseCase
+
+    @Binds
+    @Singleton
+    fun bindGetTicketsOffersUseCase(
+        useCase: GetTicketsOffersUseCaseImpl
+    ) : GetTicketsOffersUseCase
 
 }
