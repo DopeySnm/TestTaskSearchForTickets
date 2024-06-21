@@ -6,12 +6,16 @@
     <string name="subscriptions">Подписки</string>
     <string name="profile">Профиль</string>
     <string name="stub">Сервис временно недоступен</string>
-
     <string name="finding_cheap_flights">Поиск дешевых\n авиабилетов</string>
     <string name="help_from_where">Откуда - Москва</string>
     <string name="help_to_where">Куда - Турция</string>
     <string name="fly_away_musically">Музыкально отлететь</string>
-
     <string name="currency">₽</string>
     <string name="from">от</string>
+    <string name="difficult_route">Сложный\nмаршрут</string>
+    <string name="anywhere">Куда угодно</string>
+    <string name="weekend">Выходные</string>
+    <string name="hot_tickets">Горячие\nбилеты</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

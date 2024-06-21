@@ -3,7 +3,7 @@ package com.example.testtasksearchfortickets.presenter.mainScreen
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
-class MainScreenAdapter : AsyncListDifferDelegationAdapter<OfferUi>(DiffUtil) {
+class OffersAdapter : AsyncListDifferDelegationAdapter<OfferUi>(DiffUtil) {
 
     init {
         delegatesManager.addDelegate(MainScreenDelegates.offersHorizontalDelegate)

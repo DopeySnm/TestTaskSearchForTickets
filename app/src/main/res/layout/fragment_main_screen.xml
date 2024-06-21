@@ -86,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/help_to_where"
                 android:paddingStart="0dp"
+                android:focusable="false"
                 android:textAppearance="@style/MainScreenTextStyle"
                 android:textColor="@color/white"
                 android:textColorHint="@color/dark_gray"

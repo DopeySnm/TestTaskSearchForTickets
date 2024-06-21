@@ -2,11 +2,33 @@ package com.example.testtasksearchfortickets.presenter.mainScreen
 
 import com.example.testtasksearchfortickets.R
 import com.example.testtasksearchfortickets.databinding.OfferItemBinding
+import com.example.testtasksearchfortickets.databinding.PopularDestinationItemBinding
 import com.example.testtasksearchfortickets.utils.PriceFormatUtils
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
-import java.text.DecimalFormat
 
 object MainScreenDelegates {
+
+    fun popularDestinationsDelegate(onClickItem: (PopularDestinationUi) -> Unit) = adapterDelegateViewBinding<PopularDestinationUi, PopularDestinationUi, PopularDestinationItemBinding>(
+        { layoutInflater, parent ->  PopularDestinationItemBinding.inflate(layoutInflater, parent, false) }
+    ) {
+        bind {
+            binding.root.setOnClickListener {
+                onClickItem(item)
+            }
+            when(item.id) {
+                1 -> {
+                    binding.iconImageView.setBackgroundResource(R.drawable.image_4)
+                }
+                2 -> {
+                    binding.iconImageView.setBackgroundResource(R.drawable.image_5)
+                }
+                3 -> {
+                    binding.iconImageView.setBackgroundResource(R.drawable.image_6)
+                }
+            }
+            binding.nameTextView.text = item.name
+        }
+    }
 
     val offersHorizontalDelegate = adapterDelegateViewBinding<OfferUi, OfferUi, OfferItemBinding>(
         { layoutInflater, parent ->  OfferItemBinding.inflate(layoutInflater, parent, false) }
