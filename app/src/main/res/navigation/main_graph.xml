@@ -8,5 +8,14 @@
         android:id="@+id/mainFragment"
         android:name="com.example.testtasksearchfortickets.presenter.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_stab2Fragment"
+            app:destination="@id/stab2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stab2Fragment"
+        android:name="com.example.testtasksearchfortickets.presenter.Stab2Fragment"
+        android:label="fragment_stab2"
+        tools:layout="@layout/fragment_stab2" />
 </navigation>
