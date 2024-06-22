@@ -25,7 +25,7 @@ object SelectCountryDelegates {
             binding.nameTextView.text = item.title
             binding.timeTextView.text = item.timeRange
             binding.priceTextView.text = "${PriceFormatUtils.priceFormat(item.price)} " +
-                    binding.root.resources.getString(R.string.currency)
+                    binding.root.resources.getString(R.string.currency_ruble)
         }
     }
 

@@ -3,6 +3,7 @@ package com.example.testtasksearchfortickets.data.repository
 import com.example.testtasksearchfortickets.data.api.TestAirTicketsService
 import com.example.testtasksearchfortickets.data.model.Offer
 import com.example.testtasksearchfortickets.data.model.OfferedTicket
+import com.example.testtasksearchfortickets.data.model.Ticket
 import com.example.testtasksearchfortickets.data.state.DataState
 import javax.inject.Inject
 
@@ -31,6 +32,7 @@ class OffersRepositoryImpl @Inject constructor(
         )
     }
 
+
     override suspend fun getTicketsOffers(): DataState<List<OfferedTicket>> {
         kotlin.runCatching {
             service.getTicketsOffers()
@@ -44,6 +46,26 @@ class OffersRepositoryImpl @Inject constructor(
                         DataState.Success(result)
                     } ?: DataState.Failure("Empty response")
                 } else DataState.Failure("Unable to get tickets offers")
+            },
+            onFailure = {
+                return DataState.Failure(it.message ?: "Unknown error")
+            }
+        )
+    }
+
+    override suspend fun getAllTickets(): DataState<List<Ticket>> {
+        kotlin.runCatching {
+            service.getAllTickets()
+        }.fold(
+            onSuccess = { response ->
+                return if (response.isSuccessful) {
+                    response.body()?.let { tickets ->
+                        val result = tickets.tickets.map {
+                            it.toTicket()
+                        }
+                        DataState.Success(result)
+                    } ?: DataState.Failure("Empty response")
+                } else DataState.Failure("Unable to get all tickets")
             },
             onFailure = {
                 return DataState.Failure(it.message ?: "Unknown error")

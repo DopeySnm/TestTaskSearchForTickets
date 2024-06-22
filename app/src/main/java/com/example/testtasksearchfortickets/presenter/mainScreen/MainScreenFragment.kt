@@ -26,11 +26,11 @@ import com.example.testtasksearchfortickets.databinding.FragmentMainScreenBindin
 import com.example.testtasksearchfortickets.di.appComponent
 import com.example.testtasksearchfortickets.di.viewModel.ViewModelFactory
 import com.example.testtasksearchfortickets.presenter.MainFragmentDirections
+import com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment
 import com.google.android.material.textfield.TextInputEditText
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegate
 import javax.inject.Inject
-
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private val binding: FragmentMainScreenBinding by viewBinding()
@@ -97,6 +97,11 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             to
         )
         Navigation.findNavController(requireView()).navigate(action)
+//        val navHostId = R.id.nav_host
+//        childFragmentManager.beginTransaction().replace(
+//            navHostId,
+//            SelectCountryFragment.newInstance()
+//        )
     }
 
     private fun createDialog() {

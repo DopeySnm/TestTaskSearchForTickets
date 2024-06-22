@@ -5,6 +5,7 @@ import android.content.Context
 import com.example.testtasksearchfortickets.di.modules.AppBindsModule
 import com.example.testtasksearchfortickets.di.modules.NetworkModule
 import com.example.testtasksearchfortickets.di.modules.ViewModelModule
+import com.example.testtasksearchfortickets.presenter.allTickets.AllTicketsFragment
 import com.example.testtasksearchfortickets.presenter.mainScreen.MainScreenFragment
 import com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment
 import dagger.BindsInstance
@@ -24,6 +25,8 @@ interface AppComponent {
     fun inject(fragment: MainScreenFragment)
 
     fun inject(fragment: SelectCountryFragment)
+
+    fun inject(fragment: AllTicketsFragment)
 
     @Component.Builder
     interface Builder{

@@ -8,6 +8,8 @@ import java.util.Locale
 
 object DateUtils {
 
+    private const val DATE_MASK = "yyyy-MM-dd'T'HH:mm:ss"
+
     fun getData(year: Int, monthOfYear: Int, dayOfMonth: Int): Date {
         return Date(year, monthOfYear, dayOfMonth)
     }
@@ -15,6 +17,27 @@ object DateUtils {
     fun getCurrentDate(): Date {
         val calendar = Calendar.getInstance()
         return calendar.time
+    }
+
+    fun getTime(date: String): String {
+        val dateFormatInput = SimpleDateFormat(DATE_MASK, Locale("ru"))
+        val resultFormat = SimpleDateFormat("HH:mm", Locale("ru"))
+        return resultFormat.format(dateFormatInput.parse(date))
+    }
+
+    fun getFlightTime(departureDate: String, arrivalDate: String): String {
+        val dateFormatInput = SimpleDateFormat(DATE_MASK, Locale("ru"))
+        val departure = dateFormatInput.parse(departureDate)
+        val arrival = dateFormatInput.parse(arrivalDate)
+        val differenceInTime: Long = arrival.time - departure.time
+        val differenceInHours: Long = ((differenceInTime
+                / (1000 * 60 * 60))
+                % 24)
+        val differenceInMinutes = ((differenceInTime
+                / (1000 * 60))
+                % 60)
+        val totalTimeInHours: Double = differenceInHours + (differenceInMinutes / 60.0)
+        return String.format("%.1f", totalTimeInHours)
     }
 
     fun getStringIdDayOfWeek(date: Date): Int {
