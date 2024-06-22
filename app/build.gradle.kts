@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.googleKsp)
+    alias(libs.plugins.safeargs)
 }
 
 android {
@@ -56,6 +57,7 @@ dependencies {
     // navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.dynamic.features.fragment)
 
     // dagger2 DI
     implementation(libs.google.dagger)

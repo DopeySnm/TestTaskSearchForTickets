@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/selectCountryFragment">
+    app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.testtasksearchfortickets.presenter.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_selectCountryFragment"
+            app:destination="@id/selectCountryFragment" />
         <action
             android:id="@+id/action_mainFragment_to_stab2Fragment"
             app:destination="@id/stab2Fragment" />
@@ -22,5 +25,12 @@
         android:id="@+id/selectCountryFragment"
         android:name="com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment"
         android:label="fragment_select_country"
-        tools:layout="@layout/fragment_select_country" />
+        tools:layout="@layout/fragment_select_country" >
+        <argument
+            android:name="from"
+            app:argType="string" />
+        <argument
+            android:name="to"
+            app:argType="string" />
+    </fragment>
 </navigation>

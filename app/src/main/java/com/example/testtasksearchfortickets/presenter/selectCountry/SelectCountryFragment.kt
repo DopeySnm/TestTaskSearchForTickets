@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.testtasksearchfortickets.R
@@ -60,6 +61,18 @@ class SelectCountryFragment : Fragment(R.layout.fragment_select_country) {
 
         viewModel.loadOffers()
         initializeUi()
+        setArguments()
+    }
+
+    private fun setArguments() {
+        arguments?.let {
+            it.getString("to").let {
+                binding.toWhereEditText.setText(it)
+            }
+            it.getString("from").let {
+                binding.fromWhereEditText.setText(it)
+            }
+        }
     }
 
     private fun initializeUi() {
@@ -67,6 +80,20 @@ class SelectCountryFragment : Fragment(R.layout.fragment_select_country) {
         initializeStartDate()
         initializeSwapButton()
         initializeRecyclerView()
+        initializeAllTicketsButton()
+        initializeBackButton()
+    }
+
+    private fun initializeBackButton() {
+        binding.backImageView.setOnClickListener {
+            Navigation.findNavController(requireView()).navigateUp()
+        }
+    }
+
+    private fun initializeAllTicketsButton() {
+        binding.allTicketsButton.setOnClickListener {
+
+        }
     }
 
     private fun initializeRecyclerView() {
