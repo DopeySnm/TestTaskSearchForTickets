@@ -6,6 +6,7 @@ import com.example.testtasksearchfortickets.di.modules.AppBindsModule
 import com.example.testtasksearchfortickets.di.modules.NetworkModule
 import com.example.testtasksearchfortickets.di.modules.ViewModelModule
 import com.example.testtasksearchfortickets.presenter.mainScreen.MainScreenFragment
+import com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -21,6 +22,8 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun inject(fragment: MainScreenFragment)
+
+    fun inject(fragment: SelectCountryFragment)
 
     @Component.Builder
     interface Builder{

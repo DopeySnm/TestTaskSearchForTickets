@@ -5,9 +5,12 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -22,6 +25,7 @@ import com.example.testtasksearchfortickets.databinding.BottomSheetBinding
 import com.example.testtasksearchfortickets.databinding.FragmentMainScreenBinding
 import com.example.testtasksearchfortickets.di.appComponent
 import com.example.testtasksearchfortickets.di.viewModel.ViewModelFactory
+import com.example.testtasksearchfortickets.presenter.MainFragmentDirections
 import com.google.android.material.textfield.TextInputEditText
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegate
@@ -87,6 +91,14 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         }
     }
 
+    private fun goSelectCountry(from: String, to: String) {
+        val action = MainFragmentDirections.actionMainFragmentToSelectCountryFragment(
+            from,
+            to
+        )
+        Navigation.findNavController(requireView()).navigate(action)
+    }
+
     private fun createDialog() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -108,9 +120,26 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         val weekendButton = dialog.findViewById<ConstraintLayout>(R.id.weekend_button)
         val hotTicketsButton = dialog.findViewById<ConstraintLayout>(R.id.hot_tickets_button)
 
+        val goSelectCountry = {
+            goSelectCountry(
+                fromWhereEditText.text.toString(),
+                toWhereEditText.text.toString()
+            )
+            dialog.dismiss()
+        }
+
+        toWhereEditText.setOnEditorActionListener(TextView.OnEditorActionListener{ _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                goSelectCountry()
+                return@OnEditorActionListener true
+            }
+            false
+        })
+
         val dialogAdapter = ListDelegationAdapter(
             MainScreenDelegates.popularDestinationsDelegate {
                 toWhereEditText.setText(it.name)
+                goSelectCountry()
             }
         )
 
@@ -125,6 +154,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
         anyRouteButton.setOnClickListener {
             toWhereEditText.setText(dialogAdapter.items?.random()?.name ?: "")
+            goSelectCountry()
         }
 
         weekendButton.setOnClickListener {

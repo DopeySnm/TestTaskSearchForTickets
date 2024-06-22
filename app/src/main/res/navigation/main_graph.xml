@@ -10,6 +10,9 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
+            android:id="@+id/action_mainFragment_to_selectCountryFragment"
+            app:destination="@id/selectCountryFragment" />
+        <action
             android:id="@+id/action_mainFragment_to_stab2Fragment"
             app:destination="@id/stab2Fragment" />
     </fragment>
@@ -18,4 +21,16 @@
         android:name="com.example.testtasksearchfortickets.presenter.Stab2Fragment"
         android:label="fragment_stab2"
         tools:layout="@layout/fragment_stab2" />
+    <fragment
+        android:id="@+id/selectCountryFragment"
+        android:name="com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment"
+        android:label="fragment_select_country"
+        tools:layout="@layout/fragment_select_country" >
+        <argument
+            android:name="from"
+            app:argType="string" />
+        <argument
+            android:name="to"
+            app:argType="string" />
+    </fragment>
 </navigation>

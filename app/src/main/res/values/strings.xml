@@ -16,6 +16,17 @@
     <string name="anywhere">Куда угодно</string>
     <string name="weekend">Выходные</string>
     <string name="hot_tickets">Горячие\nбилеты</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="one_economy">1,эконом</string>
+    <string name="back">обратно</string>
+    <string name="test_date">24 фев<font color='#9F9F9F'>, сб</font></string>
+
+    <string name="sunday">пн</string>
+    <string name="monday">вт</string>
+    <string name="tuesday">ср</string>
+    <string name="wednesday">чт</string>
+    <string name="thursday">пт</string>
+    <string name="friday">сб</string>
+    <string name="saturday">вс</string>
+
+    <string name="direct_flights">Прямые рейсы</string>
 </resources>
