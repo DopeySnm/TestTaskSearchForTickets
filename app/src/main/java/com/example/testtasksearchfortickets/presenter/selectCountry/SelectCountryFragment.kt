@@ -20,6 +20,7 @@ import com.example.testtasksearchfortickets.data.state.UiState
 import com.example.testtasksearchfortickets.databinding.FragmentSelectCountryBinding
 import com.example.testtasksearchfortickets.di.appComponent
 import com.example.testtasksearchfortickets.di.viewModel.ViewModelFactory
+import com.example.testtasksearchfortickets.presenter.mainScreen.MainScreenFragment
 import com.example.testtasksearchfortickets.utils.DateUtils
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import java.util.Date
@@ -61,7 +62,6 @@ class SelectCountryFragment : Fragment(R.layout.fragment_select_country) {
 
         viewModel.loadOffers()
         initializeUi()
-        setArguments()
     }
 
     private fun setArguments() {
@@ -82,6 +82,7 @@ class SelectCountryFragment : Fragment(R.layout.fragment_select_country) {
         initializeRecyclerView()
         initializeAllTicketsButton()
         initializeBackButton()
+        setArguments()
     }
 
     private fun initializeBackButton() {
@@ -92,7 +93,15 @@ class SelectCountryFragment : Fragment(R.layout.fragment_select_country) {
 
     private fun initializeAllTicketsButton() {
         binding.allTicketsButton.setOnClickListener {
-
+            val from = binding.fromWhereEditText.text.toString()
+            val to = binding.toWhereEditText.text.toString()
+            val startDate = binding.startDateButton.text.toString()
+            val action = SelectCountryFragmentDirections.actionSelectCountryFragmentToAllTicketsFragment(
+                from,
+                to,
+                startDate
+            )
+            Navigation.findNavController(requireView()).navigate(action)
         }
     }
 
@@ -175,6 +184,12 @@ class SelectCountryFragment : Fragment(R.layout.fragment_select_country) {
     override fun onAttach(context: Context) {
         context.appComponent.inject(this)
         super.onAttach(context)
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(): Fragment =
+            SelectCountryFragment()
     }
 
 }

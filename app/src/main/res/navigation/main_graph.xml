@@ -32,5 +32,23 @@
         <argument
             android:name="to"
             app:argType="string" />
+        <action
+            android:id="@+id/action_selectCountryFragment_to_allTicketsFragment"
+            app:destination="@id/allTicketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="com.example.testtasksearchfortickets.presenter.allTickets.AllTicketsFragment"
+        android:label="fragment_all_tickets"
+        tools:layout="@layout/fragment_all_tickets" >
+        <argument
+            android:name="from"
+            app:argType="string" />
+        <argument
+            android:name="to"
+            app:argType="string" />
+        <argument
+            android:name="startDate"
+            app:argType="string" />
     </fragment>
 </navigation>

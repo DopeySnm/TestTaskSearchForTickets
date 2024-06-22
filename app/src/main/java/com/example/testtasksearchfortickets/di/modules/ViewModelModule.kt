@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.testtasksearchfortickets.di.viewModel.ViewModelFactory
 import com.example.testtasksearchfortickets.di.viewModel.ViewModelKey
+import com.example.testtasksearchfortickets.presenter.allTickets.AllTicketsViewModel
 import com.example.testtasksearchfortickets.presenter.mainScreen.MainScreenViewModel
 import com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryViewModel
 import dagger.Binds
@@ -25,5 +26,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SelectCountryViewModel::class)
     abstract fun bindSelectCountryViewModel(viewModel: SelectCountryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AllTicketsViewModel::class)
+    abstract fun bindAllTicketsViewModel(viewModel: AllTicketsViewModel): ViewModel
 
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_wash"
+    tools:context=".presenter.allTickets.AllTicketsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/black_russian"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/back_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_back_blue_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/route_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Москва-Сочи"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/back_imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/description_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:text="23 февраля, 1 пассажир"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/route_textView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tickets_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_two_buttons_constraintLayout"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/container_two_buttons_background"
+        app:layout_constraintBottom_toBottomOf="@+id/tickets_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tickets_recyclerView">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/graph_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stateListAnimator="@null"
+            android:drawableStart="@drawable/settings_icon"
+            android:text="@string/filter"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/graph_button_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/filter_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/filter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stateListAnimator="@null"
+            android:drawableStart="@drawable/graph_icon"
+            android:text="@string/price_chart"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/filter_button_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/graph_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

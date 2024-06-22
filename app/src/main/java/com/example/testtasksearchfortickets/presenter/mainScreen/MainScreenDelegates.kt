@@ -47,7 +47,7 @@ object MainScreenDelegates {
             }
             val price = binding.root.resources.getString(R.string.from) +
                     " ${PriceFormatUtils.priceFormat(item.price)} " +
-                    binding.root.resources.getString(R.string.currency)
+                    binding.root.resources.getString(R.string.currency_ruble)
             binding.nameTextView.text = item.title
             binding.townTextView.text = item.town
             binding.priceTextView.text = price
