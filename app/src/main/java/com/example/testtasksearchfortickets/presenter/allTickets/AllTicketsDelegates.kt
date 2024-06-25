@@ -3,6 +3,7 @@ package com.example.testtasksearchfortickets.presenter.allTickets
 import com.example.testtasksearchfortickets.R
 import com.example.testtasksearchfortickets.databinding.TicketItemBinding
 import com.example.testtasksearchfortickets.databinding.TicketWithBadgeItemBinding
+import com.example.testtasksearchfortickets.utils.PriceFormatUtils
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 object AllTicketsDelegates {
@@ -18,9 +19,10 @@ object AllTicketsDelegates {
                 } else {
                     binding.root.context.getString(R.string.no_transfers)
                 }
-                val price = item.price + " ${binding.root.context.getString(R.string.currency_ruble)}"
+                val price = PriceFormatUtils.priceFormat(item.price)
+                val priceWithCurrency = price + " ${binding.root.context.getString(R.string.currency_ruble)}"
                 val flightTime = item.flightTime + "${binding.root.context.getString(R.string.hour)} / $transfers"
-                priceTextView.text = price
+                priceTextView.text = priceWithCurrency
                 timeTextView.text = flightTime
                 arrivalTimeTextView.text = item.arrivalDate
                 arrivalAirportCodeTextView.text = item.arrivalAirport
@@ -39,9 +41,10 @@ object AllTicketsDelegates {
             } else {
                 binding.root.context.getString(R.string.no_transfers)
             }
-            val price = item.price + " ${binding.root.context.getString(R.string.currency_ruble)}"
+            val price = PriceFormatUtils.priceFormat(item.price)
+            val priceWithCurrency = price + " ${binding.root.context.getString(R.string.currency_ruble)}"
             val flightTime = item.flightTime + "${binding.root.context.getString(R.string.hour)} / $transfers"
-            binding.priceTextView.text = price
+            binding.priceTextView.text = priceWithCurrency
             binding.timeTextView.text = flightTime
             binding.arrivalTimeTextView.text = item.arrivalDate
             binding.arrivalAirportCodeTextView.text = item.arrivalAirport
