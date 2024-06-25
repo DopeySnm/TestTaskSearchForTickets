@@ -3,52 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/mainScreenFragment">
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.testtasksearchfortickets.presenter.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.testtasksearchfortickets.presenter.mainScreen.MainScreenFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
         <action
-            android:id="@+id/action_mainFragment_to_selectCountryFragment"
-            app:destination="@id/selectCountryFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_stab2Fragment"
-            app:destination="@id/stab2Fragment" />
+            android:id="@+id/action_mainScreenFragment_to_navigation"
+            app:destination="@id/navigation" >
+            <argument
+                android:name="from"
+                app:argType="string" />
+            <argument
+                android:name="to"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
-        android:id="@+id/stab2Fragment"
-        android:name="com.example.testtasksearchfortickets.presenter.Stab2Fragment"
-        android:label="fragment_stab2"
-        tools:layout="@layout/fragment_stab2" />
-    <fragment
-        android:id="@+id/selectCountryFragment"
-        android:name="com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment"
-        android:label="fragment_select_country"
-        tools:layout="@layout/fragment_select_country" >
-        <argument
-            android:name="from"
-            app:argType="string" />
-        <argument
-            android:name="to"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_selectCountryFragment_to_allTicketsFragment"
-            app:destination="@id/allTicketsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/allTicketsFragment"
-        android:name="com.example.testtasksearchfortickets.presenter.allTickets.AllTicketsFragment"
-        android:label="fragment_all_tickets"
-        tools:layout="@layout/fragment_all_tickets" >
-        <argument
-            android:name="from"
-            app:argType="string" />
-        <argument
-            android:name="to"
-            app:argType="string" />
-        <argument
-            android:name="startDate"
-            app:argType="string" />
-    </fragment>
+        android:id="@+id/stabFragment"
+        android:name="com.example.testtasksearchfortickets.presenter.StabFragment"
+        android:label="fragment_stab"
+        tools:layout="@layout/fragment_stab" />
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/selectCountryFragment">
+        <fragment
+            android:id="@+id/selectCountryFragment"
+            android:name="com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment"
+            android:label="fragment_select_country"
+            tools:layout="@layout/fragment_select_country">
+            <argument
+                android:name="from"
+                app:argType="string" />
+            <argument
+                android:name="to"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_selectCountryFragment_to_allTicketsFragment"
+                app:destination="@id/allTicketsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/stab2Fragment"
+            android:name="com.example.testtasksearchfortickets.presenter.Stab2Fragment"
+            android:label="fragment_stab2"
+            tools:layout="@layout/fragment_stab2" />
+        <fragment
+            android:id="@+id/allTicketsFragment"
+            android:name="com.example.testtasksearchfortickets.presenter.allTickets.AllTicketsFragment"
+            android:label="fragment_all_tickets"
+            tools:layout="@layout/fragment_all_tickets">
+            <argument
+                android:name="from"
+                app:argType="string" />
+            <argument
+                android:name="to"
+                app:argType="string" />
+            <argument
+                android:name="startDate"
+                app:argType="string" />
+        </fragment>
+    </navigation>
 </navigation>

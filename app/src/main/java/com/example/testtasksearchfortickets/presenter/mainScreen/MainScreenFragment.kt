@@ -5,31 +5,26 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.testtasksearchfortickets.R
 import com.example.testtasksearchfortickets.data.state.UiState
-import com.example.testtasksearchfortickets.databinding.BottomSheetBinding
 import com.example.testtasksearchfortickets.databinding.FragmentMainScreenBinding
 import com.example.testtasksearchfortickets.di.appComponent
 import com.example.testtasksearchfortickets.di.viewModel.ViewModelFactory
-import com.example.testtasksearchfortickets.presenter.MainFragmentDirections
-import com.example.testtasksearchfortickets.presenter.selectCountry.SelectCountryFragment
 import com.google.android.material.textfield.TextInputEditText
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
-import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegate
 import javax.inject.Inject
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
@@ -92,16 +87,11 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     }
 
     private fun goSelectCountry(from: String, to: String) {
-        val action = MainFragmentDirections.actionMainFragmentToSelectCountryFragment(
+        val action = MainScreenFragmentDirections.actionMainScreenFragmentToNavigation(
             from,
             to
         )
-        Navigation.findNavController(requireView()).navigate(action)
-//        val navHostId = R.id.nav_host
-//        childFragmentManager.beginTransaction().replace(
-//            navHostId,
-//            SelectCountryFragment.newInstance()
-//        )
+        findNavController().navigate(action)
     }
 
     private fun createDialog() {
